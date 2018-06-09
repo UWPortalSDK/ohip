@@ -2,30 +2,25 @@ angular.module('portalApp')
 .controller('ohipCtrl', ['$scope', function ($scope) {
 	
 	// mock data
+	$scope.monthtext=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
 	$scope.items = [
 		{
-			title:'Student coverage Card',
-			tags: ['Upload Document'],
-			details: 'https://uwaterloo.ca/human-resources/support-employees/benefits/university-health-insurance-plan-uhip'
-            
+			title:'Student Coverage Card',
+			tags: []
 
 		},
 		{
 			title:'Benefits',
-			tags: ['tag D', 'tag E', 'tag F'],
-			details: 'https://www.uwo.ca/international/iesc/current/health_care_in_canada/uhip/index.html'
-            linkText: 'International Students'
-            linkText: 'Canadian Students'
-		},
+			tags: []
+        },
 		{
-			title:'Item 3',
-			tags: ['tag A', 'tag H'],
+			title:'Appointment',
+			tags: [],
 			details: 'Donec id quam eu odio feugiat sagittis. Duis a tempus neque. Praesent elementum quis ante quis commodo. Sed tincidunt aliquet dolor sit amet laoreet. '
 		},
 		{
-			title:'Item 4',
-			tags: ['tag I'],
-			details: 'Proin sem quam, rutrum id ante id, scelerisque tempor quam. Curabitur pharetra turpis at sem placerat, non vehicula ligula tincidunt.'
+			title:'Health History',
+			tags: []
 		},
 		{
 			title:'Item 5',
@@ -44,8 +39,21 @@ angular.module('portalApp')
 	
 	// This function gets called when user clicks an item in the list
 	$scope.showDetails = function(item){
-		// Make the item that user clicked available to the template
-		$scope.detailsItem = item;		
-		$scope.portalHelpers.showView('ohipDetails.html', 2);
+		// Make the item that user clicked available to the template\
+		console.log("**********", item);
+		if(item.title=='Appointment'){
+        	$scope.portalHelpers.showView('appointmentView.html', 1);
+        } else if(item.title == 'Student Coverage Card') {
+        	$scope.portalHelpers.showView('sccView.html', 1);
+        } else if(item.title == 'Benefits') {
+        	location.href = 'https://www.uwo.ca/international/iesc/current/health_care_in_canada/uhip/index.html';
+        } else if(item.title == 'Health History') {
+        	$scope.portalHelpers.showView('HealthHistoryView.html', 1);
+        }   
+        else{
+        		$scope.detailsItem = item;		
+				$scope.portalHelpers.showView('ohipDetails.html', 2);
+        }
+        
 	}
 }]);
