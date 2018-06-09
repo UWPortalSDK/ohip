@@ -4,14 +4,18 @@ angular.module('portalApp')
 	// mock data
 	$scope.items = [
 		{
-			title:'Item 1',
-			tags: ['tag A', 'tag B', 'tag C'],
-			details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+			title:'Student coverage Card',
+			tags: ['Upload Document'],
+			details: 'https://uwaterloo.ca/human-resources/support-employees/benefits/university-health-insurance-plan-uhip'
+            
+
 		},
 		{
-			title:'Item 2',
+			title:'Benefits',
 			tags: ['tag D', 'tag E', 'tag F'],
-			details: 'Mauris cursus, sapien et malesuada ultrices, purus sapien iaculis tellus, quis semper magna est at leo.'
+			details: 'https://www.uwo.ca/international/iesc/current/health_care_in_canada/uhip/index.html'
+            linkText: 'International Students'
+            linkText: 'Canadian Students'
 		},
 		{
 			title:'Item 3',
